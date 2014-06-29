@@ -1,0 +1,53 @@
+
+<html>
+<head>
+
+<style>
+html{
+	height:100%;
+	background:white;
+	background:radial-gradient(circle,#fff 30%, #ccc);
+	background-size: cover;
+	}
+#background{
+z-index:-2;
+}	
+
+#start_button
+						{
+						cursor:pointer;
+						position:absolute;
+						top:200px;
+						left:42%;
+						width:243px;
+						height:112px;
+						}
+#title
+	{
+	
+	position:absolute;
+	top:40px;
+	left:350px;
+	}
+#text{
+	position:absolute;
+	top:160px;
+	left:570px;
+	z-index:10;
+	}
+
+</style>
+<script src = "bgPanning.js"></script>	
+<script type="text/javascript" src="validate.js"></script>
+</head>
+
+<body onload="init()">
+<div id="text"><input type="text" id="input" placeholder="Enter your Name" onkeyup="validateInput(this)"><span id="helptext"></span></div>
+<canvas id="background" width="1366px" height="700px">
+                        Your browser does not support canvas. Please try again with a different browser.
+</canvas>
+	<div id="start_button"  ><a id="anchor_id" ><img src="assets/button.png" ></a></div>
+<div id="title"><img src="assets/titleLogin.png"></div>
+
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+  <meta charset="utf-8" />
+  <title> Sloppy Stars </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+   <link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="jquery.sidr.dark.css">
+	
+  <style>
+      
+      html{
+	height:100%;
+	background:white;
+	background:radial-gradient(circle,#dedede 20%, #dedede);
+	background-size: cover;
+	}
+	
+    #game_div {
+      position:absolute;
+	  left:25%;
+	  top:0%;
+      width: 700px;
+      margin: auto;
+      margin-top: 50px;
+   
+	  box-shadow: 0px 0px 30px black;
+    }
+	
+	#leaderboard_text{
+	position:absolute;
+	left:40%;
+	top:35%;
+	z-index:50;
+	font:20px arial,sans-serif;
+	color:#000;
+	font-weight:bold;
+	
+	}
+	#leader_board{
+	position:absolute;
+	left:28%;
+	top:16%;
+	box-shadow: 0px 0px 30px black;
+	box-shadow:0px 0px 20px white;
+	display:none;
+	}
+	
+	#leaderboard_score{
+	position:absolute;
+	left:60%;
+	top:35%;
+	z-index:6;
+	font:20px arial,sans-serif;
+	color:#000;
+	font-weight:bold;
+	
+	}
+	#buttons{
+	position:absolute;
+	left:24%;
+	top:550px;
+	}
+	.leader{
+	display:none;
+	}
+	
+  </style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script type="text/javascript" src="phaser.min.js"></script>
+  <script type="text/javascript" src="main.js"></script>
+  <script type="text/javascript" src="jquery.js"></script>
+  <script type="text/javascript" src="jquery.sidr.min.js"></script>
+	<script type="text/javascript" src="App42-all-2.3.min.js"></script>
+		<script type="text/javascript" src="leaderboard.js"></script>
+	<script type="text/javascript" src="blockui.js"></script>
+
+  
+  </head>
+
+<body>
+
+
+ <div id="game_div"> </div>
+	
+  
+<div id="leaderboard_text" class="leader" ></div>
+<div id="leaderboard_score" class="leader"></div>
+<div id="leader_board" class="leader"><img src="assets/leaderboard.png"></div>
+
+  
+  <div id="buttons">
+  <span id="left-menu" href="#left-menu"><button id="myButton">Choose Actor</button></span>
+  <span id="right-menu" href="#right-menu"><button id="myButton1">Choose Song</button></span>
+  <button id="submitButton" > Submit Score </button>
+  
+  </div>
+  
+  	<script>
+	
+$("#submitButton").click(function(){
+
+  $(".leader").css("display","initial");
+  saveScore();
+});
+
+
+</script>  
+  <div id="sidr-left">
+
+  <ul id='actor_list'>
+    <li id='amiteb'><a href="#">Amiteb Bechan</a></li>
+    <li id='akshey'><a href="#">Akshey Kumer</a></li>
+	<li id='ameer'><a href="#">Ameer Khen</a></li>
+	<li id='catrina'><a href="#">Catrina Caif</a></li>
+	<li id='runvier'><a href="#">Runvier Sing</a></li>
+	<li id='sheruk'><a href="#">Sheruk Khen</a></li>
+	<li id='sulmen'><a href="#">Sulmen Khen</a></li>
+	<li id='sunni'><a href="#">Sunni Lion</a></li>
+  </ul>
+</div>
+<div class="growlUI" style="display: none;">
+            <h1 id='actor_name'></h1>
+			<h3>Hit Space to Start !</h3>
+</div>
+<div class="growlUI1" style="display: none;">
+           
+			<h3>Oops ! You couldn't make it to Top 10 this time.</h3>
+</div>			
+<script>
+//Script for Side Bar Menu
+$(document).ready(function() {
+    $('#left-menu').sidr({
+      name: 'sidr-left',
+      side: 'left', // By default
+	  displace:false
+	});
+    $('#right-menu').sidr({
+      name: 'sidr-right',
+      side: 'left',
+	  displace:false
+    });
+});
+$('#actor_list li').each(function() {
+	$(this).click(function(){
+		name = $(this).attr('id');
+		var Name = name.charAt(0).toUpperCase() + name.slice(1);
+		document.getElementById('actor_name').innerHTML= Name + ' Selected !\n';
+		$.blockUI({ 
+            message: $('div.growlUI'), 
+            fadeIn: 700, 
+            fadeOut: 700, 
+            timeout: 4000, 
+            showOverlay: false, 
+            centerY: false, 
+            css: { 
+                width: '270px', 
+                top: '10px', 
+                
+                left: '78%', 
+                border: 'none', 
+                padding: '5px', 
+                backgroundColor: '#000', 
+                '-webkit-border-radius': '10px', 
+                '-moz-border-radius': '10px', 
+                opacity: .6, 
+                color: '#fff' 
+            } 
+        }); 
+	});
+    
+});
+
+</script>
+
+            
+</div>
+</body>
+
+</html>
