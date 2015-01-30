@@ -1,4 +1,4 @@
-Sidr
+Sloppy-Stars
 ============
-
-This is the Bower package for the Sidr jQuery Plugin. For a further description, documentation and others visit: [http://www.berriart.com/sidr](http://www.berriart.com/sidr)
+Now you can choose your favorite actor to play flappy bird!
+Developed by me and [prateek27](http://github.com/prateek27).
